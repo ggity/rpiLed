@@ -41,7 +41,7 @@
       <configuration>
         <archive>
           <manifest>
-            <mainClass>ledica.LEDController</mainClass>
+            <mainClass>kontroleri.ledica.LEDController</mainClass>
           </manifest>
         </archive>
         <descriptorRefs>
