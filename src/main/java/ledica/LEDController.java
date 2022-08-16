@@ -32,37 +32,41 @@ public class LEDController {
 				.name("ime")
 				.address(12)
 				.shutdown(DigitalState.LOW)
-				.initial(DigitalState.HIGH);	
-//				.build();
+				.initial(DigitalState.HIGH)	
+				.build();
 				
 //		PiGpioDigitalOutput ledara = new PiGpioDigitalOutput(18, , "faf");
 		konzola.println("blebe");
 //		System.out.println(ledConfig);
-		var ledica = pi4j.dout().create(ledConfig);
-		konzola.println(ledica.state());
-		System.out.println(ledica.provider());
-		System.out.println(ledica.getAddress());
-		System.out.println(ledica.getName());
+//		var ledica = pi4j.dout().create(ledConfig);
+//		konzola.println(ledica.state());
+//		System.out.println(ledica.provider());
+//		System.out.println(ledica.getAddress());
+//		System.out.println(ledica.getName());
 //		System.out.println(ledica.get
 //		System.out.println(ledica);
 		System.out.println("palim");
-		ledica.state(DigitalState.HIGH);
+//		ledica.state(DigitalState.HIGH);
 //		PiGpioDigitalOutput ledara = new PiGpioDigitalOutput(18, , null)
 		System.out.println();
 //		PiGpioDigitalOutput ledara = new PiGpioDigitalOutput(18, ledica.provider(), ledConfig);
 //		GpioFa
 //		PiGpioDigitalOutput d = new 
 			
-		
-//		GpioPinD
+		System.out.println(pi4j.platform().description());//		GpioPinD
+		var izlaz = pi4j.platform().digitalOutput().create(ledConfig);
+		System.out.println(izlaz.state());
+		izlaz.state(DigitalState.HIGH);
+//		izlaz.state(DigitalState.HIGH);
+		System.out.println(pi4j.platform().digitalOutput().create(12).description());
 //		DigitalOutput.
 //		ledConfig.	
 //		ledConfig.state
 		Thread.sleep(5000);
 		System.out.println("gasim");
-		ledica.toggle();
-		konzola.println(ledica.state());	
-		konzola.println(ledica.provider());
+//		ledica.toggle();
+//		konzola.println(ledica.state());	
+//		konzola.println(ledica.provider());
 //		PiGpioDigitalOutput dout 
 //		DigitalOutput at = new PiGpioDigitalOutput( , null, null)
 		Thread.sleep(2000);
