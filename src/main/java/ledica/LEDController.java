@@ -4,7 +4,9 @@ import com.pi4j.*;
 import com.pi4j.context.Context;
 import com.pi4j.io.gpio.Gpio;
 import com.pi4j.io.gpio.digital.DigitalOutput;
+import com.pi4j.io.gpio.digital.DigitalOutputConfig;
 import com.pi4j.io.gpio.digital.DigitalOutputProvider;
+import com.pi4j.io.gpio.digital.DigitalOutputProviderBase;
 //import com.pi4j.context
 import com.pi4j.io.gpio.digital.DigitalState;
 import com.pi4j.library.pigpio.PiGpio;
@@ -24,18 +26,21 @@ public class LEDController {
 		
 		Platforms platforma = pi.platforms();
 		
+//		pi.provid
+		
 		konzola.box("Pi platforma:");
 		platforma.describe().print(System.out);
-		
+		System.out.println(pi.providers());
 		var ledConfig = DigitalOutput.newConfigBuilder(pi)
 			      .id("led")
 			      .name("LED Flasher")
-			      .address(18)
+			      .address(18	)
 			      .shutdown(DigitalState.LOW)
-			      .initial(DigitalState.LOW);	
-//			      .provider("pigpio-digital-output");
+			      .initial(DigitalState.LOW)
+			      .provider("pigpio-digital-output");
 			      
 			var led = pi.create(ledConfig);
+			
 			
 		for (int i = 1; i <= 5; i++) {
 			led.toggle();
