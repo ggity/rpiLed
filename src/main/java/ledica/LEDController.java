@@ -32,8 +32,8 @@ public class LEDController {
 			      .name("LED Flasher")
 			      .address(1)
 			      .shutdown(DigitalState.LOW)
-			      .initial(DigitalState.LOW)
-			      .provider("pigpio-digital-output");
+			      .initial(DigitalState.LOW);	
+//			      .provider("pigpio-digital-output");
 			      
 			var led = pi.create(ledConfig);
 			
