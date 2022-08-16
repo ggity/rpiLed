@@ -10,6 +10,8 @@ public class LEDController {
 	public static void main(String[] args) throws Exception {
 		System.out.println("zdravo");
 		
+		System.out.println(LEDController.class.getCanonicalName());
+		
 		var pi4j = Pi4J.newAutoContext();
 		
 		var ledConfig = DigitalOutput.newConfigBuilder(pi4j)
