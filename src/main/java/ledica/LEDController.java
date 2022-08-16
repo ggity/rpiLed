@@ -18,13 +18,16 @@ public class LEDController {
 		var ledConfig = DigitalOutput.newConfigBuilder(pi4j)
 				.id("id")
 				.name("ime")
-				.address(18)
+				.address(1)
 				.shutdown(DigitalState.LOW)
 				.initial(DigitalState.HIGH);	
 //				.build();
 				
 //		System.out.println(ledConfig);
 		var ledica = pi4j.dout().create(ledConfig);
+		System.out.println(ledica.getAddress());
+		System.out.println(ledica.getName());
+//		System.out.println(ledica.get
 //		System.out.println(ledica);
 		System.out.println("palim");
 		ledica.state(DigitalState.HIGH);
