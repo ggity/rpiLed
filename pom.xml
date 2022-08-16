@@ -6,12 +6,13 @@
 	<artifactId>ledica</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
+	<name>ledController</name>
+
 	<properties>
 		<!-- DEPENDENCIES VERSIONS -->
 		<slf4j.version>1.7.32</slf4j.version>
 		<pi4j.version>2.0</pi4j.version>
 	</properties>
-
 	<dependencies>
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -23,14 +24,12 @@
 			<artifactId>slf4j-simple</artifactId>
 			<version>${slf4j.version}</version>
 		</dependency>
-
 		<!-- include Pi4J Core -->
 		<dependency>
 			<groupId>com.pi4j</groupId>
 			<artifactId>pi4j-core</artifactId>
 			<version>${pi4j.version}</version>
 		</dependency>
-
 		<!-- include Pi4J Plugins (Platforms and I/O Providers) -->
 		<dependency>
 			<groupId>com.pi4j</groupId>
@@ -44,29 +43,25 @@
 		</dependency>
 	</dependencies>
 
-
 	<build>
-		<finalName>ledController</finalName>
+		<!-- project name -->
+		<finalName>${name}</finalName>
 		<plugins>
-
 			<!-- other Maven plugins ... -->
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<version>3.1.1</version>
-
 				<configuration>
-					<archive>
-						<manifest>
-							<mainClass>ledica.LEDController</mainClass>
-						</manifest>
-					</archive>
+				<archive>
+					<manifest>
+						<mainClass>ledica.LEDController</mainClass>
+					</manifest>
+				</archive>
 					<descriptorRefs>
 						<descriptorRef>jar-with-dependencies</descriptorRef>
 					</descriptorRefs>
 				</configuration>
-
 				<executions>
 					<execution>
 						<id>make-assembly</id>
@@ -76,9 +71,7 @@
 						</goals>
 					</execution>
 				</executions>
-
 			</plugin>
 		</plugins>
 	</build>
-
 </project>

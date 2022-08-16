@@ -1,7 +1,10 @@
 package ledica;
 
+import java.util.ServiceLoader;
+
 import com.pi4j.*;
 import com.pi4j.context.Context;
+import com.pi4j.extension.Plugin;
 import com.pi4j.io.gpio.Gpio;
 import com.pi4j.io.gpio.digital.DigitalOutput;
 import com.pi4j.io.gpio.digital.DigitalOutputConfig;
@@ -20,38 +23,36 @@ public class LEDController {
 
 	public static void main(String[] args) throws Exception {
 		
-		Console konzola = new Console();
+		Console console = new Console();
 		
-		var pi = Pi4J.newAutoContext();
+		var pi4j = Pi4J.newAutoContext();
 		
-		Platforms platforma = pi.platforms();
+		Platforms platforms = pi4j.platforms();
+
+		console.box("Pi4J PLATFORMS");
+		console.println();
+		platforms.describe().print(System.out);
+		console.println();
 		
-//		pi.provid
-		
-		konzola.box("Pi platforma:");
-		platforma.describe().print(System.out);
-		System.out.println(pi.providers());
-		var ledConfig = DigitalOutput.newConfigBuilder(pi)
-			      .id("led")
-			      .name("LED Flasher")
-			      .address(18	)
-			      .shutdown(DigitalState.LOW)
-			      .initial(DigitalState.LOW)
-			      .provider("pigpio-digital-output");
-			      
-			var led = pi.create(ledConfig);
-			
-			
+		final int PIN_LED = 18; // PIN 15 = BCM 22
+
+		var ledConfig = DigitalOutput.newConfigBuilder(pi4j)
+		      .id("led")
+		      .name("LED Flasher")
+		      .address(PIN_LED)
+		      .shutdown(DigitalState.LOW)
+		      .initial(DigitalState.LOW)
+		      .provider("pigpio-digital-output");
+		      
+		var led = pi4j.create(ledConfig);
+
 		for (int i = 1; i <= 5; i++) {
+			console.box("Changing led state");
 			led.toggle();
-			konzola.println();
-			konzola.println("menjam stanje");
-			konzola.println(led.state());
-			konzola.println();
-			Thread.sleep(3000);
+			console.println(led.state());
 		}
 		
-		pi.shutdown();
+		pi4j.shutdown();
 		
 	}
 
