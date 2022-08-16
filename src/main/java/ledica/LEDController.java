@@ -41,8 +41,8 @@ public class LEDController {
 		      .name("LED Flasher")
 		      .address(PIN_LED)
 		      .shutdown(DigitalState.LOW)
-		      .initial(DigitalState.LOW)
-		      .provider("pigpio-digital-output");
+		      .initial(DigitalState.LOW);
+//		      .provider("pigpio-digital-output");
 		      
 		var led = pi4j.create(ledConfig);
 
@@ -50,6 +50,7 @@ public class LEDController {
 			console.box("Changing led state");
 			led.toggle();
 			console.println(led.state());
+			Thread.sleep(3000);
 		}
 		
 		pi4j.shutdown();
