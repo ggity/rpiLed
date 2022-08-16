@@ -1,5 +1,6 @@
 Manifest-Version: 1.0
 Built-By: mriggxx
 Build-Jdk: 17.0.4
+Main-Class: ledica.LEDController
 Created-By: Maven Integration for Eclipse
 
