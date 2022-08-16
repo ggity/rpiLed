@@ -25,7 +25,7 @@ public class LEDController {
 		var ledConfig = DigitalOutput.newConfigBuilder(pi4j)
 				.id("id")
 				.name("ime")
-				.address(1)
+				.address(18)
 				.shutdown(DigitalState.LOW)
 				.initial(DigitalState.HIGH);	
 //				.build();
