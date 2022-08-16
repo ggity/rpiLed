@@ -30,7 +30,7 @@ public class LEDController {
 		var ledConfig = DigitalOutput.newConfigBuilder(pi)
 			      .id("led")
 			      .name("LED Flasher")
-			      .address(1)
+			      .address(12)
 			      .shutdown(DigitalState.LOW)
 			      .initial(DigitalState.LOW);	
 //			      .provider("pigpio-digital-output");
@@ -39,6 +39,10 @@ public class LEDController {
 			
 		for (int i = 1; i <= 5; i++) {
 			led.toggle();
+			konzola.println();
+			konzola.println("menjam stanje");
+			konzola.println(led.state());
+			konzola.println();
 			Thread.sleep(3000);
 		}
 		
