@@ -36,7 +36,7 @@
 	
 	
 	<build>
-    <finalName>my-project-name</finalName>
+    <finalName>ledController</finalName>
     <plugins>
 
         <!-- other Maven plugins ... -->
