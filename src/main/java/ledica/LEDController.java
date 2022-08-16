@@ -27,6 +27,8 @@ public class LEDController {
 		
 		var pi4j = Pi4J.newAutoContext();
 		
+		pi4j.providers().describe().print(System.out);
+		
 		Platforms platforms = pi4j.platforms();
 
 		console.box("Pi4J PLATFORMS");
@@ -41,8 +43,8 @@ public class LEDController {
 		      .name("LED Flasher")
 		      .address(PIN_LED)
 		      .shutdown(DigitalState.LOW)
-		      .initial(DigitalState.LOW);
-//		      .provider("pigpio-digital-output");
+		      .initial(DigitalState.LOW)
+		      .provider("pigpio-digital-output");
 		      
 		var led = pi4j.create(ledConfig);
 
